@@ -1,18 +1,31 @@
-nums = [1,1,2]
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
-        # Usamos una variable (x = 1) que se incrementa al 
-        # siguiente índice cada vez que encontramos un elemento único e 
-        # insertamos este elemento en su índice correspondiente.
+        # Inicializar la variable x con el valor 1
         x = 1
-        # creamos un rango con el len de nums -1.
+
+        # Recorrer la lista nums desde el elemento 1 hasta el penúltimo elemento
         for i in range(len(nums)-1):
-            # aquí ponemos nums[i] que seria el rango completo, y si es diferente de nums[i + 1]
-	        if(nums[i] != nums[i + 1]):
-                # va a cumplir que que nums de x es igual a nums de i + 1
-		        nums[x] = nums[ i + 1]
-                # luego el valor de x le sumamos 1
+            # Si el elemento actual es distinto del elemento siguiente
+            if(nums[i] != nums[i + 1]):
+                # Asignar el elemento siguiente a la posición x de la lista resultante
+                nums[x] = nums[i + 1]
+                # Aumentar x en 1
                 x += 1
-            # luego retornamos x
-            return(x)
-        
+
+        # Devolver la longitud de la lista resultante
+        return(x)
+
+# Ejemplo 1
+nums1 = [1, 1, 2]
+s1 = Solution()
+print(s1.removeDuplicates(nums1)) # Output: 2
+
+# Ejemplo 2
+nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+s2 = Solution()
+print(s2.removeDuplicates(nums2)) # Output: 5
+
+
+
+
+

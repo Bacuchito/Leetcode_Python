@@ -1,11 +1,26 @@
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        # lo primero que hacemos es crear un diccionario, en este caso le pusimos la variante dict
+        # Crea un diccionario vacío
         dict = {}
-        # para idx, la variante e enumarada en (nums), esto lo hacemos para tome en cuenta los numeros dentro de la variante nums
+        
+        # Recorre la lista nums
         for idx, e in enumerate(nums):
-            # aqui si target(9) - e(que son los numeros de nums), basicamente aqui lo que va a hacer es buscar las variantes que den el target
-            if target -e in dict:
-                return dict[target -e], idx
-        # aqui dict[e] es igual a idx.      
-        dict[e] = idx
+            # Si target - e está en el diccionario, devuelve el índice de target - e y el índice de e
+            if target - e in dict:
+                return dict[target - e], idx
+            
+            # Agrega el elemento e y su índice al diccionario
+            dict[e] = idx
+
+s = Solution()
+
+nums = [2, 7, 11, 15]
+target = 9
+result = s.twoSum(nums, target)
+print(result) # Output: [0, 1]
+
+
+nums = [3, 2, 4]
+target = 6
+result = s.twoSum(nums, target)
+print(result) # Output: [1, 2]
